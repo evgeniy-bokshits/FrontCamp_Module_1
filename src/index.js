@@ -1,4 +1,4 @@
-import newsApiService from '@services/newsApiService';
+import newsApiServiceFactory from '@services/newsApiServiceFactory';
 import './css/index.scss';
 
 renderMainContent();
@@ -20,8 +20,8 @@ function renderMainContent(){
 }
 
 function runCall(){
-    const newsService = new newsApiService();
-    newsService.getTopNewsForCountry(document.getElementById('source').value).then(value => {
+    const newsService = new newsApiServiceFactory();
+    newsService.createService('GET').getTopNewsForCountry(document.getElementById('source').value).then(value => {
         generateNewsList(value.articles);
     });
 }
