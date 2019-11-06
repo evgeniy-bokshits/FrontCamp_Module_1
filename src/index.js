@@ -1,10 +1,10 @@
-import getPost from './message';
-import './index.scss';
+import newsApiService from '@services/newsApiService';
+import './css/index.scss';
 
-init()
+renderMainContent();
 runCall();
 
-function init(){
+function renderMainContent(){
     const content = 
     `<div id="colorlib-main">
         <section class="ftco-section">
@@ -20,11 +20,11 @@ function init(){
 }
 
 function runCall(){
-    getPost(document.getElementById('source').value).then(value => {
+    const newsService = new newsApiService();
+    newsService.getTopNewsForCountry(document.getElementById('source').value).then(value => {
         generateNewsList(value.articles);
     });
 }
-
 
 function setupSource(countries) {
     let options = ``;
@@ -38,17 +38,6 @@ function setupSource(countries) {
     </select>
     `;
     return selection;
-};
-
-// temp for count
-function setupCount(parent) {
-    let selection=document.createElement('input');
-    selection.setAttribute("type", "number");
-    selection.setAttribute("id", "numberCount");
-    selection.value = 4;
-    selection.addEventListener("change", runCall);
-    parent.appendChild(selection);
-    
 };
 
 function generateNewsList(articles) {

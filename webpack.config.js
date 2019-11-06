@@ -16,13 +16,25 @@ module.exports = {
         entry: {
           bundle: './src/index.js'
         },
+        resolve: {
+          extensions: ['.js', '.scss'],
+          alias: {
+              '@infrastructure': path.resolve(__dirname, './src/app/infrastructure'),
+              '@services': path.resolve(__dirname, './src/app/services'),
+              '@models': path.resolve(__dirname, './src/app/models'),
+			  '@utilities': path.resolve(__dirname, './src/app/utilities')
+          }
+      },
         output: {
           path: path.resolve(__dirname, 'dist'),
           filename: 'bundle.js'
         },
         devtool: 'inline-source-map',
         plugins: [
-          new HtmlWebpackPlugin(),
+          new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html',
+          }),
           extractScss
         ],
         module: {
