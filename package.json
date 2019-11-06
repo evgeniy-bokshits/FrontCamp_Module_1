@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "SET NODE_ENV=production & webpack",
-    "dev": "SET NODE_ENV=development & webpack-dev-server --content-base dist --hot"
+    "build": "SET NODE_ENV=production&& webpack",
+    "dev": "SET NODE_ENV=development&& webpack-dev-server --content-base dist --hot"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "animate.css": "^3.7.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
