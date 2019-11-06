@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "SET NODE_ENV=production & webpack",
-    "dev": "SET NODE_ENV=development & webpack-dev-server --content-base dist --hot"
+    "build": "SET NODE_ENV=production&& webpack",
+    "dev": "SET NODE_ENV=development&& webpack-dev-server --content-base dist --hot"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +24,8 @@
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "uglifyjs-webpack-plugin": "^2.0.1"
   },
   "dependencies": {
     "@babel/core": "^7.6.4"
